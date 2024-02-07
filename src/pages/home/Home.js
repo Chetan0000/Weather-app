@@ -61,7 +61,7 @@ const Home = () => {
         position: "top",
         variant: "subtle",
         status: "error",
-        duration: 10000,
+        duration: 3000,
         isClosable: true,
       });
       return;
