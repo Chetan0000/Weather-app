@@ -77,6 +77,7 @@ const Daily = ({ wether, timezone }) => {
     infinite: false,
     speed: 500,
     slidesToShow: 7,
+    swipeToSlide: true,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     responsive: [

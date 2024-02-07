@@ -38,6 +38,7 @@ const Hourly = ({ wether, timezone }) => {
     infinite: false,
     speed: 500,
     slidesToShow: 4,
+    swipeToSlide: true,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
   };
