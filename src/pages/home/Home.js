@@ -209,7 +209,7 @@ const Home = () => {
                 >
                   <Box w={"100vw"}>
                     <Daily
-                      wether={dailyData.slice(1, 13)}
+                      wether={dailyData.slice(1, 16)}
                       timezone={timeZone}
                     />
                   </Box>
