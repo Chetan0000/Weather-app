@@ -5,12 +5,15 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { ChakraProvider, ColorModeScript } from "@chakra-ui/react";
 import theme from "./theme";
+import WeatherProvider from "./Context/weatherprovider";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-    <ChakraProvider initialColorMode={theme.config.initialColorMode}>
-      <App />
-    </ChakraProvider>
+    <WeatherProvider>
+      <ChakraProvider initialColorMode={theme.config.initialColorMode}>
+        <App />
+      </ChakraProvider>
+    </WeatherProvider>
   </BrowserRouter>
 );
 {

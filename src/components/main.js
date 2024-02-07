@@ -19,6 +19,7 @@ import { MdOutlineWaterDrop } from "react-icons/md";
 import { TbTemperatureCelsius } from "react-icons/tb";
 import { TbTemperatureFahrenheit } from "react-icons/tb";
 import { MdSettings } from "react-icons/md";
+import { WeatherState } from "../Context/weatherprovider";
 const Main = ({
   search,
   setSearch,
@@ -32,6 +33,8 @@ const Main = ({
   // const temp = wether.main.temp;
   // const [search, setSearch] = useState("");
   const [flipper, setFlipper] = useState(true);
+  const { setPlace } = WeatherState();
+  setPlace(name);
   return (
     <>
       <Box>

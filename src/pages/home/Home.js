@@ -5,6 +5,7 @@ import SubMain from "../../components/SubMain";
 import Daily from "../../components/Daily";
 import axios from "axios";
 import { useToast } from "@chakra-ui/react";
+import { WeatherState } from "../../Context/weatherprovider";
 
 const Home = () => {
   const [search, setSearch] = useState("hyderabad");
@@ -129,7 +130,7 @@ const Home = () => {
             >
               {/* Header */}
               <Box
-                w={{ base: "100%", md: "73%", lg: "73%" }}
+                w={{ base: "100%", md: "70%", lg: "70%" }}
                 // border={"1px solid red"}
                 p={"10px"}
               >
@@ -172,7 +173,7 @@ const Home = () => {
               </Box>
 
               <Box
-                w={{ base: "100%", md: "28%", lg: "28%" }}
+                w={{ base: "100%", md: "30*%", lg: "30%" }}
                 // minH={"100px"}
                 bg={"#F6F6F6"}
                 borderTopRightRadius={{ base: "0px", md: "25px", lg: "30px" }}

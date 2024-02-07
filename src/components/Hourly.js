@@ -47,7 +47,7 @@ const Hourly = ({ wether, timezone }) => {
 
   return (
     <>
-      <Box mt={"10px"} ml={{ base: "-10px", md: "0px", lg: "0px" }} p={"5px"}>
+      <Box ml={{ base: "-10px", md: "0px", lg: "0px" }} px={"5px"}>
         <Slider {...settings}>
           {hourly.map((current) => {
             const timeStr = moment

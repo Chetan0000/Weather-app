@@ -37,10 +37,12 @@ import { GiSunrise, GiSunset } from "react-icons/gi";
 import { WiDayCloudy } from "react-icons/wi";
 import { FiSun } from "react-icons/fi";
 import { BsArrowUpLeftCircleFill } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
+import { WeatherState } from "../Context/weatherprovider";
 
 const Daily = ({ wether, timezone }) => {
-  const backdropColor = useColorModeValue("white");
-  const isMobile = useBreakpoint("base");
+  const { setCurrentWeather } = WeatherState();
+  const navigate = useNavigate();
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -110,7 +112,7 @@ const Daily = ({ wether, timezone }) => {
         fontSize={{ base: "22px", md: "24px", lg: "26px" }}
         fontWeight={"semibold"}
         textAlign={{ base: "start", md: "center", lg: "center" }}
-        p={"10px"}
+        // p={"10px"}
       >
         Daily Forecast
       </Text>
@@ -123,8 +125,17 @@ const Daily = ({ wether, timezone }) => {
                 .tz(current.dt * 1000, "Asia/Kolkata")
                 .format("dddd");
               return (
-                <div key={current.dt}>
-                  <Box cursor={"pointer"} onClick={onOpen}>
+                <div
+                  key={current.dt}
+                  onClick={() => {
+                    let we = {};
+                    we = current;
+                    setCurrentWeather(we);
+                    navigate("/home/day");
+                    console.log(current);
+                  }}
+                >
+                  <Box cursor={"pointer"}>
                     <Card
                       wether={current}
                       timeStr={timeStr.substring(0, 3)}
@@ -135,7 +146,7 @@ const Daily = ({ wether, timezone }) => {
                     isOpen={isOpen}
                     onClose={onClose}
                     // colorScheme="orange"
-                    size={"3xl"}
+                    size={"4xl"}
                     // autoFocus={"false"}
                     backdrop={false}
                     // blockScrollOnMount={"false"}
@@ -159,10 +170,16 @@ const Daily = ({ wether, timezone }) => {
                       </ModalHeader>
                       <ModalCloseButton />
                       <ModalBody>
-                        <Text mt={"-30px"} pb={"30px"}>
+                        <Text
+                          mt={"-30px"}
+                          pb={"30px"}
+                          fontSize={"18px"}
+                          fontWeight={"medium"}
+                        >
                           {current.summary}
                         </Text>
                         <Box
+                          // h={"60vh"}
                           display={"flex"}
                           flexDirection={"row"}
                           gap={"10px"}
@@ -172,8 +189,13 @@ const Daily = ({ wether, timezone }) => {
                             borderRight={"1px solid silver"}
                             w={"50%"}
                             pr={"10px"}
+                            h={"220px"}
                           >
-                            <Box>
+                            <Box
+                              display={"flex"}
+                              flexDirection={"column"}
+                              gap={"10px"}
+                            >
                               <div className="flex gap-[5px] justify-between">
                                 <h4 className="flex items-center">
                                   {" "}
@@ -241,7 +263,12 @@ const Daily = ({ wether, timezone }) => {
                               </div>
                             </Box>
                           </Box>
-                          <Box w={"50%"}>
+                          <Box
+                            w={"50%"}
+                            display={"flex"}
+                            flexDirection={"column"}
+                            gap={"10px"}
+                          >
                             <div className="flex gap-[5px] justify-between">
                               <h4 className="flex items-center">
                                 <WiSunrise size={20} /> Sunrise:{" "}
@@ -297,7 +324,7 @@ const Daily = ({ wether, timezone }) => {
                                 <BsArrowUpLeftCircleFill /> Wind:{" "}
                               </h4>
                               <p className="font-semibold">
-                                {current.wind_speed}
+                                {current.wind_speed} m/s
                               </p>
                             </div>
                           </Box>
