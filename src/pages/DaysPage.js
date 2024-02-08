@@ -141,11 +141,12 @@ const DaysPage = ({}) => {
             mt={{ base: "30px", md: "10px", lg: "0px" }}
             minH={"370px"}
             // border={"1px solid black"}
+            bg={"#FAFAFA"}
             display={"flex"}
             justifyContent={"center"}
             alignItems={"center"}
           >
-            <div className="grid grid-flow-row-dense lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-4  p-[20px] w-[90%] md:w-[85%] lg:w-[85%] absolute m-auto">
+            <div className="grid grid-flow-row-dense lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-4  p-[20px] w-[90%] md:w-[80%] lg:w-[70%] absolute m-auto">
               <div className="md:w-[150px] lg:w-[200px] w-[140px] bg-[#E8E9EB] flex gap-[5px]  border-[1px] border-gray-300 rounded-[8px] justify-center">
                 <Text
                   display={"flex"}
